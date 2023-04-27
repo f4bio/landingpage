@@ -1,6 +1,7 @@
 import "./style.scss";
 import * as basicLightbox from "basiclightbox";
 import prettyHtml from "json-pretty-html";
+import marked from "marked";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const versioningFileContent = {
@@ -13,21 +14,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     // eslint-disable-next-line no-undef
     hash: VERSION.hash,
     // eslint-disable-next-line no-undef
-    dirty: VERSION.dirty,
+    dirty: VERSION.dirty
   };
 
   const versionText = document.getElementById("version-text");
-  const lightboxProfilePicture = document.getElementById("lightbox-profile-picture");
+  const lightboxProfilePicture = document.getElementById(
+    "lightbox-profile-picture"
+  );
   const lightboxVersionJson = document.getElementById("lightbox-version-json");
+  const content = document.getElementById("content");
+
+  content.innerHTML = marked.parse(
+    "# Marked in the browser\n\nRendered by **marked**."
+  );
 
   versionText.textContent = versioningFileContent.version;
 
   lightboxProfilePicture.onclick = () => {
-    basicLightbox.create(`<img src="/profile.png" alt="Profile Picture"/>`).show();
+    basicLightbox
+      .create(`<img src="/profile.png" alt="Profile Picture"/>`)
+      .show();
   };
 
   lightboxVersionJson.onclick = () => {
     const _jsonHtml = prettyHtml(versioningFileContent);
-    basicLightbox.create(`<div class="modal"><pre>${_jsonHtml}</pre></div>`).show();
+    basicLightbox
+      .create(`<div class="modal"><pre>${_jsonHtml}</pre></div>`)
+      .show();
   };
 });
