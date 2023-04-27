@@ -1,0 +1,53 @@
+name: Lint
+
+on: [push, pull_request]
+
+jobs:
+  default-linters:
+    name: Default Linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      # ESLint and Prettier must be in `package.json`
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          eslint: true
+          stylelint: true
+
+  additional-linters:
+    name: Additional Linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Set variables
+        id: vars
+        run: |
+          echo "::set-output name=commit_message::$(git log -1 --pretty=format:"%s")"
+
+      - run: npm install --global htmllint-cli @commitlint/{cli,config-conventional}
+
+      - name: Run htmllint
+        run: npx htmllint --rc .htmllintrc.json ./src/*.html
+
+      - name: Run commitlint
+        run: echo ${{steps.vars.outputs.commit_message}} | npx commitlint

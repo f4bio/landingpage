@@ -1,0 +1,169 @@
+@import "~basiclightbox/dist/basicLightbox.min.css";
+@import "~json-pretty-html/style.css";
+@import "~hack-font/build/web/hack.css";
+@import "~flexboxgrid/dist/flexboxgrid.css";
+
+html {
+  font-size: 1em;
+}
+
+:root {
+  --font: "Hack";
+  --background: #0f0e17;
+  --foreground: #fffffe;
+  --primary: #81d4fa;
+  --light: #62efff;
+  --dark: #008ba3;
+  --orange: #f57c00;
+  --pink: #c2185b;
+  --branch: 1px solid #a7a9be;
+}
+
+body {
+  background: var(--background);
+  padding-top: 2rem;
+}
+
+a {
+  font-family: var(--font);
+  // font-size: 0.6rem;
+  color: var(--foreground);
+  text-decoration: none;
+  outline: none;
+}
+
+span {
+  color: var(--primary);
+}
+
+h1 {
+  display: inline;
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--light);
+}
+
+ul {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+li {
+  position: relative;
+}
+
+li::before,
+li::after {
+  content: "";
+  position: absolute;
+  left: -0.75rem;
+}
+
+li::before {
+  border-top: var(--branch);
+  top: 0.75rem;
+  width: 0.5rem;
+}
+
+li::after {
+  border-left: var(--branch);
+  height: 100%;
+  top: 0.25rem;
+}
+
+li:last-child::after {
+  height: 0.5rem;
+}
+
+form h1 {
+  padding-left: 0.125rem;
+}
+
+input {
+  font-family: var(--font);
+  // font-size: 1rem;
+  color: var(--foreground);
+  background-color: var(--background);
+  border: none;
+}
+
+footer {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.7em;
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #57546d;
+
+  a {
+    // font-size: 0.7rem;
+    color: #57546d;
+  }
+
+  .column.center {
+    text-align: center;
+  }
+}
+
+a:hover {
+  color: var(--background);
+  background: var(--primary);
+}
+
+.not-revealed {
+  display: none;
+}
+
+.revealed {
+  display: block;
+}
+
+.column {
+  flex: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.ascii-output {
+  font-family: var(--font);
+  color: var(--foreground);
+  font-size: 8pt;
+  font-weight: bold;
+}
+
+.json-output {
+  font-family: var(--font);
+  color: var(--foreground);
+}
+
+.json-modal {
+  background-color: var(--foreground);
+}
+
+.prompt {
+  font-family: var(--font);
+  color: var(--foreground);
+}
+
+.prompt ~ .prompt {
+  padding: 1.1rem 0 0.3125rem;
+}
+
+.tree > ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.modal {
+  padding: 1.8rem 2.16rem 0.9rem;
+  width: 550px;
+  max-width: 1300px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
