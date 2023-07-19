@@ -2,6 +2,7 @@ import "./style.scss";
 import * as basicLightbox from "basiclightbox";
 import prettyHtml from "json-pretty-html";
 import marked from "marked";
+import Typewriter from 'typewriter-effect';
 
 document.addEventListener("DOMContentLoaded", async () => {
   const versioningFileContent = {
@@ -42,4 +43,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       .create(`<div class="modal"><pre>${_jsonHtml}</pre></div>`)
       .show();
   };
+
+  const typewriterElement = document.getElementById("typewriter");
+  const typewriter = new Typewriter(typewriterElement, {
+    loop: true,
+    delay: 75,
+  });
+
+  typewriter
+  .pauseFor(2500)
+  .typeString('A simple yet powerful native javascript')
+  .pauseFor(300)
+  .deleteChars(10)
+  .typeString('<strong>JS</strong> plugin for a cool typewriter effect and ')
+  .typeString('<strong>only <span style="color: #27ae60;">5kb</span> Gzipped!</strong>')
+  .pauseFor(1000)
+  .start();
 });
