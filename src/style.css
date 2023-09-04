@@ -1,7 +1,4 @@
-@import "~basiclightbox/dist/basicLightbox.min.css";
-@import "~json-pretty-html/style.css";
 @import "~hack-font/build/web/hack.css";
-@import "~flexboxgrid/dist/flexboxgrid.css";
 
 html {
   font-size: 1em;
@@ -26,7 +23,6 @@ body {
 
 a {
   font-family: var(--font);
-  // font-size: 0.6rem;
   color: var(--foreground);
   text-decoration: none;
   outline: none;
@@ -82,7 +78,6 @@ form h1 {
 
 input {
   font-family: var(--font);
-  // font-size: 1rem;
   color: var(--foreground);
   background-color: var(--background);
   border: none;
@@ -99,7 +94,6 @@ footer {
   color: #57546d;
 
   a {
-    // font-size: 0.7rem;
     color: #57546d;
   }
 
@@ -165,5 +159,5 @@ a:hover {
   max-width: 1300px;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 20px rgba(0 0 0 0.2);
 }

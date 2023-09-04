@@ -1,8 +1,8 @@
-import "./style.scss";
+import "./style.css";
 import * as basicLightbox from "basiclightbox";
 import prettyHtml from "json-pretty-html";
 import marked from "marked";
-import Typewriter from 'typewriter-effect';
+import Typewriter from "typewriter-effect";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const versioningFileContent = {
@@ -51,12 +51,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   typewriter
-  .pauseFor(2500)
-  .typeString('A simple yet powerful native javascript')
-  .pauseFor(300)
-  .deleteChars(10)
-  .typeString('<strong>JS</strong> plugin for a cool typewriter effect and ')
-  .typeString('<strong>only <span style="color: #27ae60;">5kb</span> Gzipped!</strong>')
-  .pauseFor(1000)
-  .start();
+    .pauseFor(2500)
+    .typeString('A simple yet powerful native javascript')
+    .pauseFor(300)
+    .deleteChars(10)
+    .typeString('<strong>JS</strong> plugin for a cool typewriter effect and ')
+    .typeString('<strong>only <span style="color: #27ae60;">5kb</span> Gzipped!</strong>')
+    .pauseFor(1000)
+    .start();
 });
