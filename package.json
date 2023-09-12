@@ -1,76 +1,45 @@
 {
-  "name": "landingpage",
-  "version": "1.0.13",
-  "description": "> _a basic term-like start page with tree structure_",
-  "main": "src/index.js",
+  "name": "landingpage-vite",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start:dev": "npx webpack serve --open --config webpack.dev.js",
-    "dev": "npm run build:dev",
+    "dev": "npx vite",
     "build": "npm run build:prod",
-    "build:dev": "npx webpack --config webpack.dev.js",
-    "build:prod": "npx webpack --config webpack.prod.js",
+    "build:prod": "npx tsc && npx vite build --minify=true",
+    "build:dev": "npx tsc && npx vite build --minify=false --debug",
+    "preview": "npx vite preview",
     "lint": "npm run lint:eslint && npm run lint:stylelint",
-    "lint:stylelint": "npx stylelint \"**/*.scss\"",
-    "lint:eslint": "npx eslint --ext js ./src",
+    "lint:stylelint": "npx stylelint \"**/*.css\"",
+    "lint:eslint": "npx eslint --ext ts ./src",
     "lint:fix": "npm run lint:stylelint -- --fix && npm run lint:eslint -- --fix",
-    "watch": "webpack --watch",
-    "start": "webpack serve --open",
     "test": "echo TODO"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/f4bio/landingpage.git"
-  },
-  "author": {
-    "name": "Fabio Tea",
-    "email": "iam@f4b.io",
-    "url": "https://iam.f4b.io"
-  },
-  "contributors": [
-    {
-      "name": "nytly",
-      "email": "b@rubble.com",
-      "url": "https://www.reddit.com/user/nytly/"
-    }
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/f4bio/landingpage/issues"
-  },
-  "homepage": "https://github.com/f4bio/landingpage#readme",
-  "devDependencies": {
-    "@types/basiclightbox": "^5.0.1",
-    "basiclightbox": "^5.0.4",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.8.1",
-    "eslint": "^8.48.0",
-    "eslint-config-prettier": "^9.0.0",
-    "execa": "^8.0.1",
-    "favicons": "^7.1.4",
-    "favicons-webpack-plugin": "^6.0.1",
-    "flexboxgrid": "^6.3.1",
-    "git-revision-webpack-plugin": "^5.0.0",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "feather-icons": "^4.29.1",
     "hack-font": "^3.3.0",
-    "html-webpack-plugin": "^5.5.3",
-    "json-pretty-html": "^1.1.6",
-    "marked": "^8.0.0",
-    "mini-css-extract-plugin": "^2.7.6",
+    "spinkit": "^2.0.1",
+    "typewriter-effect": "^2.20.1"
+  },
+  "devDependencies": {
+    "@types/postcss-import": "^14.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "autoprefixer": "^10.4.15",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "marked": "^9.0.0",
     "postcss": "^8.4.29",
     "postcss-import": "^15.1.0",
-    "postcss-loader": "^7.3.3",
+    "postcss-nested": "^6.0.1",
     "prettier": "3.0.3",
-    "sass": "^1.66.1",
-    "sass-loader": "^13.3.2",
-    "style-loader": "^3.3.3",
     "stylelint": "^15.10.3",
     "stylelint-config-standard": "^34.0.0",
-    "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1",
-    "webpack-merge": "^5.9.0"
-  },
-  "dependencies": {
-    "typewriter-effect": "^2.20.1"
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
   }
 }

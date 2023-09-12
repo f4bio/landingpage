@@ -1,8 +1,9 @@
-@import "~hack-font/build/web/hack.css";
+@import url("hack-font/build/web/hack.css");
+@import url("spinkit/spinkit.css");
 
-html {
-  font-size: 1em;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --font: "Hack";
@@ -16,9 +17,25 @@ html {
   --branch: 1px solid #a7a9be;
 }
 
-body {
-  background: var(--background);
-  padding-top: 2rem;
+#app {
+  @apply w-full h-full fixed top-0 left-0 text-xs antialiased;
+
+  font-family: var(--font), system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  color: var(--foreground);
+  background-color: #242424;
+  margin: 0;
+  display: flex;
+  place-items: center;
+}
+
+h1 {
+  @apply text-sm;
+
+  display: inline;
+  font-family: var(--font);
+  font-weight: normal;
+  color: var(--light);
 }
 
 a {
@@ -28,16 +45,31 @@ a {
   outline: none;
 }
 
-span {
-  color: var(--primary);
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
 
-h1 {
-  display: inline;
-  font-family: var(--font);
-  font-size: 1rem;
-  font-weight: normal;
-  color: var(--light);
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #3178c6aa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+span {
+  color: var(--primary);
 }
 
 ul {
@@ -84,9 +116,10 @@ input {
 }
 
 footer {
+  @apply text-xs;
+
   display: block;
   margin-top: 1rem;
-  font-size: 0.7em;
   position: sticky;
   left: 0;
   bottom: 0;
@@ -124,9 +157,10 @@ a:hover {
 }
 
 .ascii-output {
+  @apply text-xs;
+
   font-family: var(--font);
   color: var(--foreground);
-  font-size: 8pt;
   font-weight: bold;
 }
 
@@ -160,4 +194,40 @@ a:hover {
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 5px 20px rgba(0 0 0 0.2);
+}
+
+button {
+  @apply text-xs;
+
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus, button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #fff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
 }
