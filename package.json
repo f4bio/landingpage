@@ -1,13 +1,13 @@
 {
-  "name": "landingpage-vite",
+  "name": "landingpage",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "npx vite",
     "build": "npm run build:prod",
-    "build:prod": "npx tsc && npx vite build --minify=true",
-    "build:dev": "npx tsc && npx vite build --minify=false --debug",
+    "build:prod": "npx vite build --minify=true",
+    "build:dev": "npx vite build --minify=false --debug",
     "preview": "npx vite preview",
     "lint": "npm run lint:eslint && npm run lint:stylelint",
     "lint:stylelint": "npx stylelint \"**/*.css\"",
@@ -25,9 +25,6 @@
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
-    "@types/postcss-import": "^14.0.1",
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.8.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
@@ -39,7 +36,6 @@
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
     "tailwindcss": "^3.3.3",
-    "typescript": "^5.2.2",
     "vite": "^4.4.11"
   }
 }
