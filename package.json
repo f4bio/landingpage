@@ -1,7 +1,7 @@
 {
   "name": "landingpage",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "npx vite",
@@ -22,7 +22,7 @@
     "feather-icons": "^4.29.1",
     "hack-font": "^3.3.0",
     "spinkit": "^2.0.1",
-    "typed.js": "^2.0.16"
+    "typer-js": "^5.5.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",

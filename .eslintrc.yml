@@ -16,6 +16,7 @@ extends:
   - prettier
 parserOptions:
   sourceType: module
+  ecmaVersion: latest
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly

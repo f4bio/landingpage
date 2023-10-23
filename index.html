@@ -19,22 +19,21 @@
       <div class="sk-wave-rect"></div>
     </div>
   </div>
-  <div id="content" class="flex-col justify-center content-center w-full h-full m-1 hidden">
+  <div id="content" class="hidden flex flex-col justify-center w-full h-full m-1">
     <div class="flex-none">
-      <header>
-        <!-- empty header -->
-      </header>
+      <header><!-- empty header --></header>
     </div>
-    <div class="grow my-auto box">
+    <div class="grow-box">
       <div class="prompt inline-flex whitespace-pre">
         <span class="text-slate-100">[ </span>
         <span>iam</span>
         <span class="text-slate-100">@</span>
         <span>f4b.io</span>
         <span class="text-slate-100"> ~]$ </span>
-        <span id="typed"></span>
+        <span id="whoamiCommandText" class="hidden">whoami | tree</span>
+        <span id="whoamiCommandTyping"></span>
       </div>
-      <div id="output-result" class="tree hidden">
+      <div id="whoamiResult" class="invisible">
         <h2>.</h2>
         <ul>
           <li>
@@ -48,9 +47,7 @@
             <h2>dev</h2>
             <ul>
               <li><a href="https://github.com/f4bio">github</a></li>
-              <li><a href="https://gitlab.com/f4bio">gitlab</a></li>
               <li><a href="https://codestats.net/users/f4bio">codestats</a></li>
-              <li><a href="https://profile.codersrank.io/user/f4bio">codersrank</a></li>
             </ul>
           </li>
           <li>
@@ -71,9 +68,7 @@
       </div>
     </div>
     <div class="flex-none">
-      <footer class="box">
-        <!-- empty footer -->
-      </footer>
+      <footer><!-- empty footer --></footer>
     </div>
   </div>
 </div>
