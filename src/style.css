@@ -18,7 +18,7 @@
 }
 
 #app {
-  @apply w-full h-full fixed top-0 left-0 text-xs antialiased;
+  @apply w-full h-full fixed top-0 left-0 text-sm antialiased;
 
   font-family: var(--font), system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
@@ -29,13 +29,12 @@
   place-items: center;
 }
 
-h1 {
-  @apply text-sm;
+h2 {
+  @apply text-sm inline;
 
-  display: inline;
   font-family: var(--font);
   font-weight: normal;
-  color: var(--light);
+  color: var(--primary);
 }
 
 a {

@@ -1,31 +1,24 @@
 import "./style.css";
 import "feather-icons";
-import Typewriter from "typewriter-effect/dist/core";
+import Typed from "typed.js";
 import { hideSplashscreen } from "./util.js";
 
 setTimeout(() => {
   hideSplashscreen();
-}, 3000);
+}, 0);
 
-const typewriterElement = document.getElementById("typewriter");
-const outputResultElement = document.getElementById("output-result");
-if (typewriterElement) {
-  const typewriter = new Typewriter(typewriterElement, {
-    loop: false,
-    delay: "natural",
+if (document.getElementById("typed")) {
+  const outputResultElement = document.getElementById("output-result");
+
+  const typed = new Typed("#typed", {
+    strings: ["whoami | tree ^1000\n"],
+    typeSpeed: 100,
+    startDelay: 1000,
+    onComplete: () => {
+      console.log("completed!");
+      typed.stop();
+      outputResultElement.classList.remove("hidden");
+    },
   });
-  typewriter
-    .pasteString("<span class='text-slate-100'>[</span>")
-    .pasteString("<span>iam</span>")
-    .pasteString("<span class='text-slate-100'>@</span>")
-    .pasteString("<span>f4b.io</span>")
-    .pasteString("<span class='text-slate-100'> ~]$</span> ")
-    .pauseFor(2500)
-    .typeString("whoami | tree")
-    .pauseFor(1000)
-    .callFunction(() => {
-      outputResultElement?.classList.remove("hidden");
-      typewriter.stop();
-    });
-  typewriter.start();
+  console.log(typed);
 }
