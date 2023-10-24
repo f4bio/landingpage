@@ -19,7 +19,7 @@ jobs:
         run: zip -jr build.zip ./dist
 
       - id: create-artifact
-        uses: actions/upload-artifact@latest
+        uses: actions/upload-artifact@v3
         with:
           name: build
           path: build.zip
