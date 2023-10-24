@@ -1,79 +1,25 @@
 name: Build
 
-on: [push]
+on: [ push ]
 
 jobs:
   build:
     name: Building
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Source
-      id: checkout-source
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build:prod
 
-    - name: Use Node.js 16
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16
+      - id: zip-release
+        run: zip -jr build.zip ./dist
 
-    - run: npm ci
-    - run: npm run build:prod
-
-    - name: Zip release
-      id: zip-release
-      run: zip -jr build.zip ./dist
-
-    - name: Artifact Production
-      id: create-artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: build
-        path: build.zip
-
-    - name: Remove Same Release
-      uses: author/action-rollback@stable
-      continue-on-error: true
-      with:
-        tag: ${{ steps.vars.outputs.package_version }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Install jq
-      run: sudo apt-get --yes install jq
-
-    - name: Set variables
-      id: vars
-      run: |
-        echo "::set-output name=package_name::$(cat package.json | jq -r '.name')"
-        echo "::set-output name=package_version::$(cat package.json | jq -r '.version')"
-    - run: |
-        echo "${{steps.vars.outputs.package_name}}"
-        echo "${{steps.vars.outputs.package_version}}"
-
-    - name: Create Release
-      id: create-release
-      uses: actions/create-release@latest
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{steps.vars.outputs.package_version}}
-        release_name: Version ${{steps.vars.outputs.package_version}}
-        body: ${{steps.vars.outputs.package_name}} - ${{steps.vars.outputs.package_version}}
-        draft: false
-        prerelease: false
-
-    - name: Upload Artifact
-      id: upload-release-asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create-release.outputs.upload_url }}
-        asset_path: build.zip
-        asset_name: build.zip
-        asset_content_type: application/zip
-
-    - uses: kolpav/purge-artifacts-action@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        expire-in: 0
+      - id: create-artifact
+        uses: actions/upload-artifact@latest
+        with:
+          name: build
+          path: build.zip

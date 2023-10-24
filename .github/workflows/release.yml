@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+env:
+  package_name: "landingpage"
+  package_version: "2.0.0"
+
+jobs:
+  release:
+    name: Releasing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
+      - uses: softprops/action-gh-release@v1
+        with:
+          tag_name: $package_version
+          name: $package_name
+          body: $package_name - $package_version
+          draft: false
+          prerelease: false
+          # note you'll typically need to create a personal access token
+          # with permissions to create releases in the other repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_REPOSITORY: f4bio/landingpage
