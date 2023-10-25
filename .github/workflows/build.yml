@@ -13,16 +13,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 21
           cache: "npm"
       - run: npm ci
       - run: npm run build:prod
-
-      - id: zip-release
-        run: zip -jr build.zip ./dist
-
       - id: create-artifact
         uses: actions/upload-artifact@v3
         with:
           name: build
-          path: build.zip
+          path: ./dist/
