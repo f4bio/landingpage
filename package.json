@@ -13,6 +13,7 @@
     "lint:stylelint": "npx stylelint \"./src/**/*.css\"",
     "lint:eslint": "npx eslint --ext js ./src",
     "lint:fix": "npm run lint:stylelint -- --fix && npm run lint:eslint -- --fix",
+    "purgecss": "npx purgecss --css src/style.css --content src/index.html",
     "test": "echo TODO"
   },
   "dependencies": {
@@ -21,8 +22,8 @@
     "typer-js": "^5.5.3"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^5.0.0",
     "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "postcss": "^8.4.31",
