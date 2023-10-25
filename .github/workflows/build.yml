@@ -17,8 +17,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm run build:prod
-      - id: create-artifact
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
         with:
           name: build
           path: ./dist/

@@ -1,5 +1,4 @@
 import "./style.css";
-import "feather-icons";
 import { hideSplashscreen, showContent } from "./util.js";
 import typer from "typer-js";
 
