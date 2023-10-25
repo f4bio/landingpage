@@ -9,71 +9,70 @@
 </head>
 
 <body>
-  <div id="app">
-    <div id="splashscreen" class="flex flex-col justify-center w-full h-full m-1">
-      <div class="sk-wave m-auto">
-        <div class="sk-wave-rect"></div>
-        <div class="sk-wave-rect"></div>
-        <div class="sk-wave-rect"></div>
-        <div class="sk-wave-rect"></div>
-        <div class="sk-wave-rect"></div>
-      </div>
-    </div>
-    <div id="content" class="flex-col justify-center content-center w-full h-full m-1 hidden">
-      <div class="flex-none">
-        <header>
-          <!-- empty header -->
-        </header>
-      </div>
-      <div class="grow my-auto box">
-        <div class="prompt">
-          <span id="typewriter"></span>
-        </div>
-        <div id="output-result" class="tree hidden">
-          <h1>.</h1>
-          <ul>
-            <li>
-              <h1>social</h1>
-              <ul>
-                <li><a href="https://twitter.com/iamf4bio">twitter</a></li>
-                <li><a href="https://steamcommunity.com/id/iamf4bio">steam</a></li>
-              </ul>
-            </li>
-            <li>
-              <h1>contact</h1>
-              <ul>
-                <li><a href="https://matrix.to/#/@f4bio:matrix.org">matrix</a></li>
-                <li><a href="mailto:iam@f4b.io">email</a></li>
-              </ul>
-            </li>
-            <li>
-              <h1>dev</h1>
-              <ul>
-                <li><a href="https://github.com/f4bio">github</a></li>
-                <li><a href="https://gitlab.com/f4bio">gitlab</a></li>
-                <li><a href="https://profile.codersrank.io/user/f4bio">codersrank</a></li>
-              </ul>
-            </li>
-            <li>
-              <h1>more</h1>
-              <ul>
-                <li><a href="https://cv.f4b.io">cv</a></li>
-                <li><a href="https://booking.f4b.io">booking</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="flex-none">
-        <footer class="box">based on
-          <a href="https://www.reddit.com/user/nytly">/u/nytly</a>'s awesome
-          <a href="https://www.reddit.com/r/startpages/comments/f6hfoq/term_tree/">
-            start page</a> | thanks bro!
-        </footer>
-      </div>
+<div id="app">
+  <div id="splashscreen" class="flex flex-col justify-center w-full h-full m-1">
+    <div class="sk-wave m-auto">
+      <div class="sk-wave-rect"></div>
+      <div class="sk-wave-rect"></div>
+      <div class="sk-wave-rect"></div>
+      <div class="sk-wave-rect"></div>
+      <div class="sk-wave-rect"></div>
     </div>
   </div>
-  <script type="module" src="/src/main.ts"></script>
+  <div id="content" class="hidden flex flex-col justify-center w-full h-full m-1">
+    <div class="flex-none">
+      <header><!-- empty header --></header>
+    </div>
+    <div class="grow-box">
+      <div class="prompt inline-flex whitespace-pre">
+        <span class="text-slate-100">[ </span>
+        <span>iam</span>
+        <span class="text-slate-100">@</span>
+        <span>f4b.io</span>
+        <span class="text-slate-100"> ~]$ </span>
+        <span id="whoamiCommandText" class="hidden">whoami | tree</span>
+        <span id="whoamiCommandTyping"></span>
+      </div>
+      <div id="whoamiResult" class="invisible">
+        <h2>.</h2>
+        <ul>
+          <li>
+            <h2>contact</h2>
+            <ul>
+              <li><a href="https://matrix.to/#/@f4bio:matrix.org">matrix</a></li>
+              <li><a href="mailto:iam@f4b.io">email</a></li>
+            </ul>
+          </li>
+          <li>
+            <h2>dev</h2>
+            <ul>
+              <li><a href="https://github.com/f4bio">github</a></li>
+              <li><a href="https://codestats.net/users/f4bio">codestats</a></li>
+            </ul>
+          </li>
+          <li>
+            <h2>social</h2>
+            <ul>
+              <li><a href="https://twitter.com/iamf4bio">twitter</a></li>
+              <li><a href="https://steamcommunity.com/id/iamf4bio">steam</a></li>
+            </ul>
+          </li>
+          <li>
+            <h2>more</h2>
+            <ul>
+              <li><a href="https://cv.f4b.io">cv</a></li>
+              <li><a href="https://booking.f4b.io">booking</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex-none">
+      <footer><!-- empty footer --></footer>
+    </div>
+  </div>
+</div>
+<script type="module" src="./src/main.js"></script>
 </body>
 
 </html>

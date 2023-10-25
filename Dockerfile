@@ -13,13 +13,13 @@ ARG BUILD_DATE
 ARG APPLICATION_NAME=landingpage
 ARG DEBIAN_FRONTEND=noninteractive
 
-LABEL vendor="Fabio Tea <iam@f4b.io>"
-LABEL name=f4bio/$APPLICATION_NAME
+LABEL maintainer="Fabio Tea <iam@f4b.io>"
+LABEL name="f4bio/$APPLICATION_NAME"
 LABEL description="Personal Landing Page"
 LABEL url="https://github.com/f4bio/landingpage"
 LABEL application="landingpage"
-LABEL build-date=$BUILD_DATE
-LABEL version=$BUILD_VERSION
+LABEL build-date="$BUILD_DATE"
+LABEL version="$BUILD_VERSION"
 LABEL vcs-url="https://github.com/f4bio/landingpage"
 
 #COPY nginx_default.conf /etc/nginx/sites-enabled/default

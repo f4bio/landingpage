@@ -1,5 +1,6 @@
 @import url("hack-font/build/web/hack.css");
 @import url("spinkit/spinkit.css");
+@import url("typer-js/src/typer.css");
 
 @tailwind base;
 @tailwind components;
@@ -18,24 +19,36 @@
 }
 
 #app {
-  @apply w-full h-full fixed top-0 left-0 text-xs antialiased;
+  @apply
+  w-full
+  h-full
+  fixed
+  top-0
+  left-0
+  text-xl
+  antialiased
+  flex
+  m-0;
 
   font-family: var(--font), system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
   color: var(--foreground);
-  background-color: #242424;
-  margin: 0;
-  display: flex;
+  background-color: var(--background);
   place-items: center;
 }
 
-h1 {
-  @apply text-sm;
+#content {
+  .grow-box {
+    @apply grow ml-2 mt-5 sm:ml-20 sm:mt-20;
+  }
+}
 
-  display: inline;
+h2 {
+  @apply inline;
+
   font-family: var(--font);
   font-weight: normal;
-  color: var(--light);
+  color: var(--primary);
 }
 
 a {
@@ -152,10 +165,6 @@ a:hover {
   flex: 1;
 }
 
-.hidden {
-  display: none;
-}
-
 .ascii-output {
   @apply text-xs;
 
@@ -193,7 +202,7 @@ a:hover {
   max-width: 1300px;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 5px 20px rgba(0 0 0 0.2);
+  box-shadow: 0 5px 20px rgba(0 0 0.2);
 }
 
 button {
