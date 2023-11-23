@@ -9,7 +9,7 @@ on:
       base-url:
         type: string
         description: base url
-        default: "/landingpage/"
+        default: "landingpage/"
       app-env:
         type: string
         description: app env
@@ -40,7 +40,7 @@ jobs:
           node-version: 21
           cache: "npm"
       - run: npm ci
-      - run: npm run build:prod -- --base="${{ github.event.inputs.base-url }}"
+      - run: npm run build:prod -- --base="/${{ github.event.inputs.base-url }}"
         env:
           APP_ENV: "${{ github.event.inputs.base-url }}"
       - uses: actions/configure-pages@v3
