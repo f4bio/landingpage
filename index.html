@@ -24,56 +24,32 @@
       <header><!-- empty header --></header>
     </div>
     <div class="grow-box">
-      <div class="prompt inline-flex whitespace-pre">
-        <span class="text-slate-100">[ </span>
-        <span>iam</span>
-        <span class="text-slate-100">@</span>
-        <span>f4b.io</span>
-        <span class="text-slate-100"> ~]$ </span>
-        <span id="whoamiCommandText" class="hidden">whoami | tree</span>
-        <span id="whoamiCommandTyping"></span>
-      </div>
-      <div id="whoamiResult" class="invisible">
-        <h2>.</h2>
-        <ul>
-          <li>
-            <h2>contact</h2>
-            <ul>
-              <li><a href="https://matrix.to/#/@f4bio:matrix.org">matrix</a></li>
-              <li><a href="mailto:iam@f4b.io">email</a></li>
-            </ul>
-          </li>
-          <li>
-            <h2>dev</h2>
-            <ul>
-              <li><a href="https://github.com/f4bio">github</a></li>
-              <li><a href="https://keyoxide.org/aspe:keyoxide.org:ITNTVXYYIZR4FBKXGAWLUFM2XM">keyoxide</a></li>
-              <li><a href="https://codestats.net/users/f4bio">codestats</a></li>
-            </ul>
-          </li>
-          <li>
-            <h2>social</h2>
-            <ul>
-              <li><a href="https://twitter.com/iamf4bio">twitter</a></li>
-              <li><a href="https://steamcommunity.com/id/iamf4bio">steam</a></li>
-            </ul>
-          </li>
-          <li>
-            <h2>more</h2>
-            <ul>
-              <li><a href="https://cv.f4b.io">cv</a></li>
-              <li><a href="https://booking.f4b.io">booking</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+      <section class="terminal">
+        <header>
+          <ul class="btn-group">
+            <li>
+              <button class="terminal-btn green"></button>
+            </li>
+            <li>
+              <button class="terminal-btn yellow"></button>
+            </li>
+            <li>
+              <button class="terminal-btn red"></button>
+            </li>
+          </ul>
+        </header>
+        <main class="content">
+          <div id="commands"></div>
+        </main>
+      </section>
+
+      <section class="test"></section>
     </div>
     <div class="flex-none">
       <footer><!-- empty footer --></footer>
     </div>
   </div>
 </div>
-<script type="module" src="src/main.js"></script>
 </body>
 
 </html>
