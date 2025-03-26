@@ -2,9 +2,7 @@
 @import url("spinkit/spinkit.css");
 @import url("typer-js/src/typer.css");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --font: "Hack";
@@ -57,13 +55,13 @@
 h2 {
   @apply inline;
 
-  font-family: var(--font);
+  font-family: var(--font), monospace;
   font-weight: normal;
   color: var(--primary);
 }
 
 a {
-  font-family: var(--font);
+  font-family: var(--font), monospace;
   color: var(--foreground);
   text-decoration: none;
   outline: none;
@@ -127,7 +125,7 @@ a:hover {
 }
 
 .prompt {
-  font-family: var(--font);
+  font-family: var(--font), monospace;
   color: var(--foreground);
 }
 
