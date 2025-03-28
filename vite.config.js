@@ -1,12 +1,14 @@
 import tailwindcss from "@tailwindcss/vite";
-import { resolve, dirname } from "node:path";
+import path, { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import { webfontDownload } from "vite-plugin-webfont-dl";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default defineConfig({
+  base: process.env["CI"] ? "/landingpage" : "/",
   resolve: {
     alias: {
       "#root": resolve(__dirname),
