@@ -8,17 +8,17 @@ on:
 
 env:
   package_name: "landingpage"
-  package_version: "2.0.0"
+  package_version: "2.0.1"
 
 jobs:
   release:
     name: Releasing
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: build
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         with:
           tag_name: $package_version
           name: $package_name
