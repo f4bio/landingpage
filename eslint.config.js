@@ -1,8 +1,16 @@
+import globals from "globals";
+import { defineConfig } from "eslint/config";
 import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
 
-export default tseslint.config(
+export default defineConfig([
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
+    },
+  },
   {
     ignores: [
       "dist/*",
@@ -13,17 +21,6 @@ export default tseslint.config(
   },
   eslint.configs.recommended,
   stylistic.configs.recommended,
-  ...tseslint.configs.recommended,
-  {
-
-    languageOptions: {
-      parserOptions: {
-        warnOnUnsupportedTypeScriptVersion: false,
-        sourceType: "module",
-        ecmaVersion: "latest",
-      },
-    },
-  },
   {
     rules: {
       // "no-unused-vars": "error",
@@ -57,14 +54,18 @@ export default tseslint.config(
       "@stylistic/brace-style": ["error", "1tbs"],
       "@stylistic/object-curly-spacing": ["error", "always"],
       "@stylistic/arrow-parens": ["error", "always"],
-      "@typescript-eslint/no-use-before-define": ["error"],
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          argsIgnorePattern: "^_",
-        },
-      ],
-      "@typescript-eslint/no-namespace": 0,
     },
   },
-);
+]);
+
+// export default
+//   {
+//
+//     languageOptions: {
+//       parserOptions: {
+//         warnOnUnsupportedTypeScriptVersion: false,
+//         sourceType: "module",
+//         ecmaVersion: "latest",
+//       },
+//     },
+//   },

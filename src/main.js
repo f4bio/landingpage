@@ -13,7 +13,10 @@ function run() {
     const commandTyping = document.querySelector("#whoamiCommandTyping");
     const commandText = document.querySelector("#whoamiCommandText");
     const commandResult = document.querySelector("#whoamiResult");
-    typer(commandTyping, { min: 30, max: 100 })
+    typer(commandTyping, {
+      min: 30,
+      max: 100,
+    })
       .cursor()
       .pause(typingTimeout)
       .line("Hi!")
