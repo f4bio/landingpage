@@ -1,34 +1,27 @@
 {
   "name": "landingpage",
   "private": true,
-  "version": "2.0.1",
+  "version": "2.0.2",
   "type": "module",
   "scripts": {
-    "dev": "npx vite",
+    "dev": "vite",
     "build": "npm run build:prod",
-    "build:prod": "npx vite build --minify=true",
-    "build:dev": "npx vite build --minify=false --debug",
-    "preview": "npx vite preview",
-    "lint": "npx eslint --ext js ./src",
+    "build:prod": "vite build --minify=true",
+    "build:dev": "vite build --minify=false --debug",
+    "preview": "vite preview",
+"lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "test": "echo TODO"
-},
+  },
   "dependencies": {
-    "eslint-plugin-vue": "^10.11.1",
     "hack-font": "^3.3.0",
     "spinkit": "^2.0.1",
-    "typer-js": "^5.5.3",
-    "typescript-eslint": "^8.71.1",
-    "vite-plugin-webfont-dl": "^3.13.1"
+    "typer-js": "^5.5.3"
   },
   "devDependencies": {
-    "@types/node": "^26.6.4",
-    "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^9.23.0",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@tailwindcss/vite": "^4.3.3",
-    "autoprefixer": "^10.6.1",
-    "cssnano": "^9.3.2",
     "eslint": "^9.23.0",
     "globals": "^17.13.0",
     "tailwindcss": "^4.3.3",
