@@ -1,4 +1,6 @@
-# landingpage-vite
+# landingpage
+
+![Language Stats](stats/leaderboard_by_lines.png)
 
 > _a basic term-like start page with tree structure_
 
