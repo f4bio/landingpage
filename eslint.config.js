@@ -1,14 +1,13 @@
-import globals from "globals";
 import { defineConfig } from "eslint/config";
 import eslint from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
+import globals from "globals";
 
 export default defineConfig([
   {
     languageOptions: {
       globals: {
         ...globals.browser,
-        process: true,
       },
     },
   },
@@ -55,6 +54,14 @@ export default defineConfig([
       "@stylistic/brace-style": ["error", "1tbs"],
       "@stylistic/object-curly-spacing": ["error", "always"],
       "@stylistic/arrow-parens": ["error", "always"],
+    },
+  },
+  {
+    files: ["*.config.js"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
     },
   },
 ]);
